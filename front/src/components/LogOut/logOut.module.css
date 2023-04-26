@@ -1,0 +1,10 @@
+.logOut {
+    background-color: #344D59;
+    border: 2px solid #709CA7 ;
+}
+
+.logOut:hover {
+    background-color: #709CA7;
+    border: 2px solid #344D59;
+    color: #344D59;
+}

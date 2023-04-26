@@ -1,0 +1,50 @@
+ /* #137C8B moyen bleu vif*/
+    /* #344D59 foncé bleu*/
+    /* #B8CBD0 clair bleu*/
+    /* #709CA7 bleu gris */
+    /* #7A90A4 gris terne */
+
+
+.loot {
+    width: 50vw;
+    height: 50vh;
+    margin-top: 20vh;
+    background-color: #344D59;
+    border-radius: 50px;
+    box-shadow: 0 0 30px #B8CBD0;
+}
+
+h1 {
+    color: #B8CBD0;
+    padding-top: 40px;
+    font-size: 40px;
+}
+
+li {
+list-style: none;
+color: #B8CBD0;
+font-size: 25px;
+padding-bottom: 10px;
+}
+
+.pRaid{
+color: #B8CBD0;
+font-size: 30px;
+padding-bottom: 15px;
+}
+
+.endRaid {
+    background-color: #344D59;
+    color: #B8CBD0;
+    width: 20vw;
+    height: 10vh;
+    font-size: 30px;
+    border-radius: 30px;
+    border: 2px solid #B8CBD0;
+}
+
+.endRaid:hover {
+    background-color: #B8CBD0;
+    color: #344D59;
+    border: 2px solid #344D59;
+}

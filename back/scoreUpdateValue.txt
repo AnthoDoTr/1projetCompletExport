@@ -1,0 +1,47 @@
+Si vos objets ont une valeur que vous souhaitez ajouter à un score utilisateur, vous pouvez suivre ces étapes :
+
+Modifiez la fonction getRandomObject dans votre service pour qu'elle retourne la valeur de l'objet sélectionné aléatoirement. Par exemple, si la valeur est stockée dans une colonne appelée "valeur" dans votre table, vous pouvez modifier votre requête pour sélectionner uniquement cette colonne et renvoyer la valeur correspondante :
+typescript
+Copy code
+async getRandomObjectValue(): Promise<number> {
+  const result = await this.prismaClient.objets.findFirst({
+    select: {
+      valeur: true,
+    },
+    orderBy: {
+      random: true,
+    },
+  });
+  return result.valeur;
+}
+Modifiez la méthode getRandomObjects de votre contrôleur pour récupérer la valeur de chaque objet sélectionné aléatoirement en appelant la fonction getRandomObjectValue et les ajouter au score de l'utilisateur. Supposons que le score de l'utilisateur est stocké dans une variable userScore :
+typescript
+Copy code
+import { Controller, Get } from '@nestjs/common';
+import { ObjectService } from './object.service';
+
+@Controller('objects')
+export class ObjectController {
+  constructor(private readonly objectService: ObjectService) {}
+
+  @Get('random')
+  async getRandomObjects() {
+    const numberOfObjects = Math.floor(Math.random() * 3) + 1;
+
+    let scoreToAdd = 0;
+
+    for (let i = 0; i < numberOfObjects; i++) {
+      const objectValue = await this.objectService.getRandomObjectValue();
+      scoreToAdd += objectValue;
+    }
+
+    // Ajouter le score aux informations de l'utilisateur
+    const userScore = 10; // exemple de score utilisateur
+    const updatedScore = userScore + scoreToAdd;
+
+    // Renvoyer les informations mises à jour de l'utilisateur
+    return { score: updatedScore };
+  }
+}
+Envoyez la réponse contenant le score utilisateur mis à jour.
+Avec ces étapes, vous devriez être en mesure d'ajouter la valeur des objets sélectionnés aléatoirement au score de votre utilisateur et de renvoyer le score mis à jour dans la réponse.

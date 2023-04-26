@@ -1,0 +1,49 @@
+Si vous souhaitez à la fois appliquer la mise à jour du score de l'utilisateur et afficher les objets sélectionnés aléatoirement dans la réponse, vous pouvez suivre ces étapes :
+
+Modifiez la fonction getRandomObject dans votre service pour qu'elle renvoie à la fois l'objet sélectionné aléatoirement et sa valeur :
+typescript
+Copy code
+async getRandomObject(): Promise<{ object: Object; value: number }> {
+  const result = await this.prismaClient.objets.findFirst({
+    orderBy: {
+      random: true,
+    },
+  });
+  return { object: result, value: result.valeur };
+}
+Modifiez la méthode getRandomObjects de votre contrôleur pour récupérer à la fois les objets sélectionnés aléatoirement et leur valeur en appelant la fonction getRandomObject, et ajoutez leur valeur au score de l'utilisateur :
+typescript
+Copy code
+import { Controller, Get } from '@nestjs/common';
+import { ObjectService } from './object.service';
+
+@Controller('objects')
+export class ObjectController {
+  constructor(private readonly objectService: ObjectService) {}
+
+  @Get('random')
+  async getRandomObjects() {
+    const numberOfObjects = Math.floor(Math.random() * 3) + 1;
+
+    let scoreToAdd = 0;
+    const selectedObjects = [];
+
+    for (let i = 0; i < numberOfObjects; i++) {
+      const { object, value } = await this.objectService.getRandomObject();
+      selectedObjects.push(object);
+      scoreToAdd += value;
+    }
+
+    // Ajouter le score aux informations de l'utilisateur
+    const userScore = 10; // exemple de score utilisateur
+    const updatedScore = userScore + scoreToAdd;
+
+    // Mettre à jour le score de l'utilisateur dans la base de données
+    // Code pour mettre à jour le score de l'utilisateur...
+
+    // Renvoyer les informations mises à jour de l'utilisateur et les objets sélectionnés aléatoirement
+    return { score: updatedScore, objects: selectedObjects };
+  }
+}
+Envoyez la réponse contenant le score utilisateur mis à jour et les objets sélectionnés aléatoirement.
+Avec ces étapes, vous devriez être en mesure de mettre à jour le score de l'utilisateur dans la base de données, de renvoyer le score mis à jour et les objets sélectionnés aléatoirement dans la réponse.

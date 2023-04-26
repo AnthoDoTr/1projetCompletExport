@@ -1,0 +1,33 @@
+Enfin, dans votre front-end React, vous pouvez appeler l'endpoint GET /users/ranking pour récupérer les utilisateurs triés par leur score décroissant en utilisant la méthode fetch() de JavaScript. Par exemple :
+javascript
+Copy code
+import { useState, useEffect } from 'react';
+
+function Ranking() {
+  const [users, setUsers] = useState([]);
+
+  useEffect(() => {
+    async function fetchUsers() {
+      const response = await fetch('/users/ranking');
+      const data = await response.json();
+      setUsers(data);
+    }
+    fetchUsers();
+  }, []);
+
+  return (
+    <div>
+      <h2>Ranking</h2>
+      <ul>
+        {users.map((user) => (
+          <li key={user.id}>
+            {user.pseudo} - Score: {user.score}
+          </li>
+        ))}
+      </ul>
+    </div>
+  );
+}
+
+export default Ranking;
+Dans cet exemple, nous avons créé un composant React Ranking qui appelle l'endpoint GET /users/ranking pour récupérer les utilisateurs triés par leur score décroissant. Nous avons utilisé la méthode useState() pour stocker les utilisateurs dans un état local, puis nous avons utilisé la méthode useEffect() pour appeler l'endpoint GET lors du montage du

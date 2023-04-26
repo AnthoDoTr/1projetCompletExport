@@ -1,0 +1,51 @@
+.imageFond {
+    position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1;
+  width: 100vw;
+  height: 100vh;
+}
+
+.weather {
+    width: 15vw;
+    height: 10vh;
+    margin-top: 10px;
+    border-radius: 30px;
+}
+
+.weather input {
+    width: 10vw;
+    background-color: #B8CBD0;
+}
+
+.weather button {
+    background-color: #344D59;
+    border: 2px solid #B8CBD0;
+    color: #B8CBD0;
+    /* #137C8B moyen bleu vif*/
+    /* #344D59 foncé bleu*/
+    /* #B8CBD0 clair bleu*/
+    /* #709CA7 bleu gris */
+    /* #7A90A4 gris terne */
+}
+
+.weather button:hover {
+    background-color: #B8CBD0;
+    color: #344D59;
+    border: 2px solid #344D59;
+}
+
+.temp {
+    background-color: black;
+    color: whitesmoke;
+    width: 15vw;
+    height: 10vh;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 30px;
+}
+
+.temp > p {
+    padding-top: 20px;
+}
