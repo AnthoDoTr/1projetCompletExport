@@ -6,7 +6,12 @@ import nuage from '../../assets/meteo/nuage.jpg';
 import orage from '../../assets/meteo/orage.jpg';
 import pluie from '../../assets/meteo/pluie.jpg';
 import style from './weather.module.css';
-import fond from '../../assets/meteo/default.jpg'
+import fond from '../../assets/meteo/default.jpg';
+import clear2 from '../../assets/meteo/clair3.png';
+import nuage2 from '../../assets/meteo/nuage2.png';
+import pluie2 from '../../assets/meteo/pluie2.jpeg';
+import neige2 from '../../assets/meteo/neige2.png';
+import neige4 from '../../assets/meteo/neige4.png';
 
 const Weather = () => {
   const [city, setCity] = useState('');
@@ -24,13 +29,13 @@ const Weather = () => {
   const getImageUrl = (weatherCondition) => {
     switch (weatherCondition) {
       case 'Clear':
-        return clear;
+        return clear2;
       case 'Clouds':
-        return nuage;
+        return nuage2;
       case 'Rain':
-        return pluie;
+        return pluie2;
       case 'Snow':
-        return neige;
+        return neige4;
       case 'Thunderstorm':
         return orage;  
       default:

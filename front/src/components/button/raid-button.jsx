@@ -153,7 +153,7 @@ const Button = () =>  {
                         <div>
                             <h2>Raid 2 :</h2>
                             <p>
-                                This raid costs 150 points to enter, you can drop :
+                                This raid costs 50 points to enter, you can drop :
                             </p>
                             <p>
                                 1 to 4 items worth up to 150 points each

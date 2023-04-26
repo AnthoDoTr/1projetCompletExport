@@ -63,7 +63,6 @@ export class UserService{
 
         const user = new UsersEntity();
         user.pseudo = newUser.pseudo;
-        // user.password = newUser.password;
         user.password = hashedPassword;
         user.score = newUser.score;
         return this.userRepo.save(user)
@@ -100,7 +99,6 @@ export class UserService{
         const score = user.score + raid.score;
         user.score = score;
         await this.userRepo.save(user)
-        // await this.userServe.update(user);
         return {score :raid.score, randomObjects: raid.randomObjects}
  
     }
@@ -118,13 +116,13 @@ export class UserService{
  
     }
 
-    // score :number, randomObjects : LootDTO[]
+
     async addScoreToUser2( userPseudo : string) : Promise<{score :number, randomObjects : LootDTO[]}>{
 
         const user = await this.userRepo.findOneBy( {pseudo : userPseudo});
         const raid = await this.lootServe.raid2();
-        if ( user.score > 149 ) {
-        const score = user.score + raid.score - 150;
+        if ( user.score > 49 ) {
+        const score = user.score + raid.score - 50;
         user.score = score;
         await this.userRepo.save(user)
 
@@ -132,7 +130,7 @@ export class UserService{
         } else {
             return {score: user.score, randomObjects: [{
                 id : null,
-                name : "Pas assez de point pour ce raid : minimum 150 points, votre score ",
+                name : "Not enough points for this raid : minimum 50 points required, your score ",
                 value : null
             }]}
         }
@@ -152,19 +150,13 @@ export class UserService{
             } else {
                 return {score: user.score, randomObjects: [{
                     id : null,
-                    name : "Pas assez de point pour ce raid : minimum 900 points, votre score ",
+                    name : "Not enough points for this raid : minimum 900 points required, your score ",
                     value : null
                 }]}
             }
 
 
 
-
-        // const score = user.score + raid.score;
-        // user.score = score;
-        // await this.userRepo.save(user)
-
-        // return {score :raid.score, randomObjects: raid.randomObjects}
  
     }
     async addScoreToUser4( userPseudo : string) : Promise<{score :number, randomObjects : LootDTO[]}>{
@@ -180,19 +172,13 @@ export class UserService{
             } else {
                 return {score: user.score, randomObjects: [{
                     id : null,
-                    name : "Pas assez de point pour ce raid : minimum 1500 points, votre score ",
+                    name : "Not enough points for this raid : minimum 1500 points required, your score ",
                     value : null
                 }]}
             }
 
 
 
-
-        // const score = user.score + raid.score;
-        // user.score = score;
-        // await this.userRepo.save(user)
-
-        // return {score :raid.score, randomObjects: raid.randomObjects}
  
     }
 

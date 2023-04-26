@@ -6,8 +6,9 @@
 
 
 .loot {
+    position: relative;
     width: 50vw;
-    height: 50vh;
+    height: 60vh;
     margin-top: 20vh;
     background-color: #344D59;
     border-radius: 50px;
@@ -17,7 +18,17 @@
 h1 {
     color: #B8CBD0;
     padding-top: 40px;
-    font-size: 40px;
+    font-size: 50px;
+    margin-left: auto;
+    margin-right: auto;
+    width: 30vw;
+}
+
+ul {
+    width: 30vw;
+margin-left: auto;
+margin-right: auto;
+padding-right: 3vw;
 }
 
 li {
@@ -25,12 +36,23 @@ list-style: none;
 color: #B8CBD0;
 font-size: 25px;
 padding-bottom: 10px;
+width: 30vw;
+margin-left: auto;
+margin-right: auto;
 }
 
 .pRaid{
 color: #B8CBD0;
 font-size: 30px;
-padding-bottom: 15px;
+position: absolute;
+bottom: 0;
+left: 30%;
+width: 19vw;
+background-color: black;
+box-shadow: 0 0 10px white;
+opacity: 0.9;
+padding: 10px;
+border-radius: 10px;
 }
 
 .endRaid {

@@ -9,12 +9,45 @@
 
 .button:hover {
     background-color: darkcyan;
+    color: #212f36;
 }
 
 .users {
     border: 2px solid black;
     margin-top: 20px;
     border-radius: 30px;
-    background-color: #137C8B;
-    color: #B8CBD0;
+    background-color: black;
+    color: #7A90A4;
+    opacity: 0.9;
+}
+
+.users p:first-child {
+    color: yellow;
+    background-color: black;
+    padding: 5px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px white;
+    font-weight: bold;
+    /* text-shadow: 2px 0 2px ; */
+  }
+
+
+.users p:nth-child(0n+2) {
+    color: silver;
+    background-color: black;
+    padding: 5px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px white;
+    font-weight: bolder;
+    /* text-shadow: 0 2px 5px ; */
+}
+
+
+.users p:nth-child(0n+3) {
+    color: burlywood;
+    background-color: black;
+    padding: 5px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px white;
+    font-weight: bolder;
 }

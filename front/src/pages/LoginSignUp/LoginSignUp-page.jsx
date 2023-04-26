@@ -14,6 +14,7 @@ function Login() {
 
   const [pseudo, setPseudo] = useState('');
   const [password, setPassword] = useState('');
+  const [errorMessage, setErrorMessage] = useState('');
 
   const handleUsernameChange = (event) => {
     setPseudo(event.target.value);
@@ -34,6 +35,7 @@ function Login() {
       navigate('HomePage');
     } catch (error) {
       console.log(error);
+      setErrorMessage('Invalid credentials. Try Again.');
     }
   };
 
@@ -57,6 +59,7 @@ function Login() {
       <form onSubmit={handleLoginSubmit}>
         <img src={user3} alt='User' className={style.user2}/>
         <h1>Login</h1>
+        {errorMessage && <p className={style.error}>{errorMessage}</p>}
         <div className={style.input1}>
           <img src={user} alt='user' />
           <input
