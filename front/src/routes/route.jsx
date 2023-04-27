@@ -7,10 +7,11 @@ import Raid1 from "../pages/Raid1/raid1-page";
 import Raid2 from "../pages/Raid2/raid2-page";
 import Raid3 from "../pages/Raid3/raid3-page";
 import Raid4 from "../pages/Raid4/raid4-page";
+import NotFound from "../pages/NotFound/notFound";
 
 const route = [
     {
-        path: '',
+        path: '/',
         element: <Login />,
     },
     { 
@@ -36,6 +37,10 @@ const route = [
     {
         path: 'Raid4',
         element: <Raid4 />
+    },
+    {
+        path: '*',
+        element: <NotFound />
     }
 ];
 

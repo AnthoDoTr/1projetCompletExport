@@ -60,7 +60,7 @@ const Weather = () => {
       {weatherData && (
         <div className={style.temp}>
           <p>Temperature: {Math.floor(weatherData.main.temp - 273.15)} °C</p>
-          <div><p>Humidity: {weatherData.main.humidity} %</p></div>
+          <div><p>Humidity: {weatherData.main.humidity} % <img src={`https://openweathermap.org/img/wn/${weatherData.weather[0].icon}@2x.png`} className={style.weatherIcon}/></p></div>
           <img src={imageUrl} className={style.imageFond} alt="Weather condition" />
         </div>
       )}
